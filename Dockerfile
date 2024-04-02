@@ -21,3 +21,6 @@ WORKDIR /tmp/check_rbl-1.7.3
 RUN perl Makefile.PL INSTALLSCRIPT=/data/monitoring-plugins INSTALLSITESCRIPT=/data/monitoring-plugins
 RUN make
 RUN make install
+RUN rm -rf /tmp/ckeck_rbl*
+
+WORKDIR /opt/librenms
