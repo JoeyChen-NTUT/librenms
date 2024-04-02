@@ -1,5 +1,6 @@
 FROM librenms/librenms:latest
 
+# FOR check_rbl
 RUN apk add perl-dev
 RUN apk add perl-app-cpanminus
 RUN apk add alpine-sdk
@@ -22,5 +23,11 @@ RUN perl Makefile.PL INSTALLSCRIPT=/data/monitoring-plugins INSTALLSITESCRIPT=/d
 RUN make
 RUN make install
 RUN rm -rf /tmp/ckeck_rbl*
+
+# FOR check_ssl_validity
+RUN apk add perl-crypt-x509
+RUN apk add perl-date-format
+RUN apk add perl-lwp-protocol-https
+RUN apk add perl-text-glob
 
 WORKDIR /opt/librenms
