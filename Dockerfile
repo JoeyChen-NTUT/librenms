@@ -1,4 +1,5 @@
 FROM librenms/librenms:latest
+#24.6.0
 
 # FOR check_rbl
 RUN apk add perl-dev
